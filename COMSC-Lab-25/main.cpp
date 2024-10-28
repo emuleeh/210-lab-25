@@ -12,6 +12,9 @@ const int SZ = 20000;
 float readVector(vector<string> &v);
 float readList(list<string> &l);
 float readSet(set<string> &s);
+float sortVector(vector<string> &v);
+float sortList(list<string> &l);
+float sortSet(set<string> &s);
 
 
 
@@ -32,7 +35,7 @@ int main() {
 
 float readVector(vector<string> &v) {
     //read into vector
-    auto start = high_resolution_clock::now;
+    auto start = high_resolution_clock::now();
     
     ifstream fin;
     fin.open("codes.txt");
@@ -50,7 +53,7 @@ float readVector(vector<string> &v) {
     return duration.count();
 }
 
-float readList(list <string> &l) {
+float readList(list<string> &l) {
     auto start = high_resolution_clock::now();
     ifstream fin("codes.txt");
     string codes[SZ];
@@ -62,6 +65,34 @@ float readList(list <string> &l) {
     return duration.count();
 }
 
+float readSet(set<string> &s) {
+    auto start = high_resolution_clock::now();
+    ifstream fin("codes.txt");
+    string nm;
+    while (getline(fin, nm)) {
+        s.insert(nm);
+    }
+    fin.close();
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
+
+float sortVector(vector<string> &v) {
+    auto start = high_resolution_clock::now();
+    sort(v.begin(), v.end());
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
+
+float sortList(list<string> &l) {
+    auto start = high_resolution_clock::now();
+    l.sort();
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
 /* syntax examples:
  auto start = high_resolution_clock::now()
  auto end = high_resolution_clock::now()

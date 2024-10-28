@@ -5,8 +5,9 @@
 #include <set>
 #include <fstream>
 using namespace std;
-using  namespace std:: chrono;
+using namespace std:: chrono;
 
+const int SZ = 20000;
 
 float readVector(vector<string> &v);
 float readList(list<string> &l);
@@ -49,6 +50,17 @@ float readVector(vector<string> &v) {
     return duration.count();
 }
 
+float readList(list <string> &l) {
+    auto start = high_resolution_clock::now();
+    ifstream fin("codes.txt");
+    string codes[SZ];
+    int i = 0;
+    while (fin >> codes[i++]);
+    fin.close();
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
 
 /* syntax examples:
  auto start = high_resolution_clock::now()

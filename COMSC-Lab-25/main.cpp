@@ -1,15 +1,16 @@
-//
-//  main.cpp
-//  COMSC-Lab-25
-//
-//  Created by E on 10/27/24.
-//  Copyright © 2024 E. All rights reserved.
-//
-
 #include <iostream>
+#include <chrono>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main() {
+    
+    
     return 0;
 }
+
+/* syntax examples:
+ auto start = high_resolution_clock::now()
+ auto end = high_resolution_clock::now()
+ auto duration = duration_cast<milliseconds>(end - start)
+ duration.count() references elapsed milliseconds
+ */

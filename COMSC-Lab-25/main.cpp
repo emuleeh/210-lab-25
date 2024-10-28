@@ -18,7 +18,9 @@ float sortSet(set<string> &s);
 float insertVector(vector<string> &v);
 float insertList(list<string> &l);
 float insertSet(set<string> &s);
-
+float deleteVector(vector<string> &v);
+float deleteList(list<string> &l);
+float deleteSet(set<string> &s);
 
 
 int main() {
@@ -132,6 +134,36 @@ float insertSet(set<string> &s) {
     return duration.count();
 }
 
+float deleteVector(vector<string> &v) {
+    auto start = high_resolution_clock::now();
+    //delete middlish element
+    v.erase(v.begin() + SZ / 2);
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
+
+float deleteList(list<string> &l) {
+    auto start = high_resolution_clock::now();
+    //delete middlish element
+    auto it = l.begin();
+    advance(it, SZ/2);
+    l.erase(it);
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
+
+float deleteSet(set<string> &s) {
+    auto start = high_resolution_clock::now();
+    //delete middlish element
+    auto it = s.begin();
+    advance(it, SZ/2);
+    s.erase(it);
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
 
 /* syntax examples:
  auto start = high_resolution_clock::now()

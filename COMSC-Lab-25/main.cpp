@@ -27,14 +27,25 @@ int main() {
     vector<string> v;
     list<string> l;
     set<string> s;
+    float r_v = readVector(v);
+    float r_l = readList(l);
+    float r_s = readSet(s);
+    float s_v = sortVector(v);
+    float s_l = sortList(l);
+    float s_s = sortSet(s);
+    float i_v = insertVector(v);
+    float i_l = insertList(l);
+    float i_s = insertSet(s);
+    float d_v = deleteVector(v);
+    float d_l = deleteList(l);
+    float d_s = deleteSet(s);
     
-    
-    
-    
+
     cout << "Operation" << "\tVector" << "\tList" << "\tSet" << endl;
-    cout << "Read" << "\t" <<
-    
-    
+    cout << "Read" << "\t\t" << r_v << "\t\t" << r_l << "\t\t" << r_s << endl;
+    cout << "Sort" << "\t\t" << s_v << "\t\t" << s_l << "\t\t" << s_s << endl;
+    cout << "Insert" << "\t\t" << i_v << "\t\t" << i_l << "\t\t" << i_s << endl;
+    cout << "Delete" << "\t\t" << d_v << "\t\t" << d_l << "\t\t" << d_s << endl;
     return 0;
 }
 

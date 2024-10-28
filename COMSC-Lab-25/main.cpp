@@ -15,6 +15,9 @@ float readSet(set<string> &s);
 float sortVector(vector<string> &v);
 float sortList(list<string> &l);
 float sortSet(set<string> &s);
+float insertVector(vector<string> &v);
+float insertList(list<string> &l);
+float insertSet(set<string> &s);
 
 
 
@@ -93,6 +96,43 @@ float sortList(list<string> &l) {
     auto duration = duration_cast<milliseconds>(end - start);
     return duration.count();
 }
+
+float sortSet(set<string> &s) {
+    return -1;
+}
+
+float insertVector(vector<string> &v) {
+    auto start = high_resolution_clock::now();
+    //insert "TESTCODE" into middle
+    v.insert(v.begin() + SZ / 2, "TESTCODE");
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
+
+float insertList(list<string> &l) {
+    auto start = high_resolution_clock::now();
+    //insert "TESTCODE" into middle
+    auto it = l.begin();
+    advance(it, SZ / 2);
+    l.insert(it, "TESTCODE");
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
+
+float insertSet(set<string> &s) {
+    auto start = high_resolution_clock::now();
+    //insert "TESTCODE" into middle
+    auto it = s.begin();
+    advance(it, SZ / 2);
+    s.insert(it, "TESTCODE");
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    return duration.count();
+}
+
+
 /* syntax examples:
  auto start = high_resolution_clock::now()
  auto end = high_resolution_clock::now()
